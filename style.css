@@ -29,6 +29,13 @@ body{
     background-position: center;
 }
 
+.cherry{
+    background: url('images/cherry.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .empty{
 
 }
