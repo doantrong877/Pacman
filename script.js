@@ -4,8 +4,8 @@ var pacman = {
 };
 
 var pacman2 = {
-    x : 9,
-    y : 1
+    x : 1,
+    y : 11
 };
 var ghost = {
     x : 9,
@@ -26,7 +26,7 @@ var maze = [
     [2,1,1,2,2,1,1,2,3,1,1,1,2],
     [2,1,1,1,2,1,1,2,1,1,1,1,2],
     [2,1,1,1,2,2,2,2,1,1,1,1,2],
-    [2,1,1,1,1,1,1,1,1,1,1,1,2],
+    [2,0,1,1,1,1,1,1,1,1,1,1,2],
     [2,2,2,2,2,2,2,2,2,2,2,2,2]
 ]
 
@@ -65,6 +65,10 @@ function displayPacman(){
 document.querySelector("#pacman").style.top = pacman.y*50+"px";
 document.querySelector("#pacman").style.left = pacman.x*50+"px";
 }
+function displayPacman2(){
+    document.querySelector("#pacman2").style.top = pacman2.y*50+"px";
+    document.querySelector("#pacman2").style.left = pacman2.x*50+"px";
+    }
 function displayGhost(){
 
 var ghostRun = Math.floor(Math.random() * 4);
@@ -75,6 +79,14 @@ if(ghostRun == 0){ //up
         if(pacman.y == ghost.y && pacman.x == ghost.x){ //ghost
             maze=[];
             document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
+            document.querySelector("#ghost").style.background = "none";
+            document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+        }
+        if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+            maze=[];
+            document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
             document.querySelector("#ghost").style.background = "none";
             document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
         }
@@ -85,6 +97,14 @@ if(ghostRun == 0){ //up
         if(pacman.y == ghost.y && pacman.x == ghost.x){ //ghost
             maze=[];
             document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
+            document.querySelector("#ghost").style.background = "none";
+            document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+        }
+        if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+            maze=[];
+            document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
             document.querySelector("#ghost").style.background = "none";
             document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
         }
@@ -95,6 +115,14 @@ if(ghostRun == 0){ //up
         if(pacman.y == ghost.y && pacman.x == ghost.x){ //ghost
             maze=[];
             document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
+            document.querySelector("#ghost").style.background = "none";
+            document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+        }
+        if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+            maze=[];
+            document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
             document.querySelector("#ghost").style.background = "none";
             document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
         }
@@ -105,6 +133,14 @@ if(ghostRun == 0){ //up
         if(pacman.y == ghost.y && pacman.x == ghost.x){ //ghost
             maze=[];
             document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
+            document.querySelector("#ghost").style.background = "none";
+            document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+        }
+        if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+            maze=[];
+            document.querySelector("#pacman").style.background = "none";
+            document.querySelector("#pacman2").style.background = "none";
             document.querySelector("#ghost").style.background = "none";
             document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
         }
@@ -120,6 +156,7 @@ displayMaze();
 
 
 document.onkeydown = function(e){
+    console.log(e.keyCode);
 if(e.keyCode == 39 && maze[pacman.y][pacman.x+1] != 2){ //right
     
     
@@ -192,9 +229,81 @@ if(e.keyCode == 39 && maze[pacman.y][pacman.x+1] != 2){ //right
         document.querySelector("#ghost").style.background = "none";
         document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
     }
+} else if(e.keyCode ==68 && maze[pacman2.y][pacman2.x+1] != 2){ //right
+    
+    
+    if(maze[pacman2.y][pacman2.x+1] == 1){ //coin
+        point++;
+    } else if(maze[pacman2.y][pacman2.x+1] == 3){ //cherry
+        point+= 50;
+    }
+    maze[pacman2.y][pacman2.x+1] = 0;
+    pacman2.x++;
+    document.querySelector("#pacman2").style.transform = "rotate(0deg)";
+    //console.log("pacman x : " + pacman.x + "pacman y: " + pacman.y);
+    if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+        maze=[];
+        document.querySelector("#pacman2").style.background = "none";
+        document.querySelector("#ghost").style.background = "none";
+        document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+    }
+} else if(e.keyCode == 83 && maze[pacman2.y+1][pacman2.x] != 2 ){ //down
+    
+    //console.log("ghost x : " + ghost.x + "ghost y: " + ghost.y);
+    if(maze[pacman2.y+1][pacman2.x] == 1){ //coin
+        point++;
+    } else if(maze[pacman2.y+1][pacman2.x] == 3){ //cherry
+        point+= 50;
+    }
+    maze[pacman2.y+1][pacman2.x] = 0;
+    pacman2.y++;
+    document.querySelector("#pacman2").style.transform = "rotate(90deg)";
+    //console.log("pacman x : " + pacman.x + "pacman y: " + pacman.y);
+    if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+        maze=[];
+        document.querySelector("#pacman2").style.background = "none";
+        document.querySelector("#ghost").style.background = "none";
+        document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+    }
+} else if(e.keyCode == 65 && maze[pacman2.y][pacman2.x-1] != 2){ //left
+    
+    //console.log("ghost x : " + ghost.x + "ghost y: " + ghost.y);
+    if(maze[pacman2.y][pacman2.x - 1] == 1){ //coin
+        point++;
+    } else if(maze[pacman2.y][pacman2.x - 1] == 3){ //cherry
+        point += 50;
+    }
+    maze[pacman2.y][pacman2.x-1] = 0;
+    pacman2.x--;
+    document.querySelector("#pacman2").style.transform = "rotate(180deg)";
+    //console.log("pacman x : " + pacman.x + "pacman y: " + pacman.y);
+    if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+        maze=[];
+        document.querySelector("#pacman2").style.background = "none";
+        document.querySelector("#ghost").style.background = "none";
+        document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+    }
+} else if(e.keyCode == 87 && maze[pacman2.y-1][pacman2.x] != 2){ //up
+    
+    //console.log("ghost x : " + ghost.x + "ghost y: " + ghost.y);
+    if(maze[pacman2.y-1][pacman2.x] == 1){ //coin
+        point++;
+    } else if(maze[pacman2.y-1][pacman2.x] == 3){ //cherry
+        point += 50;
+    }
+    maze[pacman2.y-1][pacman2.x] = 0;
+    pacman2.y--;
+    document.querySelector("#pacman2").style.transform = "rotate(270deg)";
+   // console.log("pacman x : " + pacman.x + "pacman y: " + pacman.y);
+    if(pacman2.y == ghost.y && pacman2.x == ghost.x){ //ghost
+        maze=[];
+        document.querySelector("#pacman2").style.background = "none";
+        document.querySelector("#ghost").style.background = "none";
+        document.querySelector("body").innerHTML += "<div id='gameover'><p>Game Over</p></div>";
+    }
 }
 document.querySelector("#point").innerHTML = point;
-
+displayPacman2();
 displayPacman();     
 displayMaze();
 }
