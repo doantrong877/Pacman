@@ -9,27 +9,36 @@
 </head>
 <body>
     
-    <div class="maze">
-        
-            
-    </div>
-
+    <div class="maze"></div>
+        <div id="pacman"></div>
 
     <script>
 
         var output = "";
+        
+        var pacman = {
+            x : 1,
+            y : 1
+        }
 
         var maze = [
-            [2,2,2,2,2,2,2,2,2,2],
-            [2,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,2],
-            [2,2,2,2,2,2,2,2,2,2]
+            [2,2,2,2,2,2,2,2,2,2,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,2],
+            [2,2,2,2,2,2,2,2,2,2,2]
         ]
     
         function displayMaze(){
+            
         for(let i = 0; i < maze.length; i++){
             output += "<div class='row'>";
             for(let j = 0; j < maze[i].length; j++){
@@ -47,8 +56,12 @@
 
         console.log(output);
     }
-
+    function displayPacman(){
+        document.querySelector(".pacman").style.top = pacman.y*50+"px";
+        document.querySelector(".pacman").style.left = pacman.x*50+"px";
+    }
     displayMaze();
+    displayPacman();
     </script>
 </body>
 
