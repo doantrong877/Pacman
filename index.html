@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pacman</title>
+</head>
+<body>
+    
+    <div class="maze">
+
+    </div>
+
+
+    <script>
+
+        var output = "";
+
+        var maze = [
+            [2,2,2,2,2,2,2,2,2,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,2,2,2,2,2,2,2,2,2]
+        ]
+    
+        function displayMaze(){
+        for(let i = 0; i < maze.length; i++){
+            output += "\n<div class='row'>\n";
+            for(let j = 0; j < maze[i].length; j++){
+                if(maze[i][j] == 2){
+                    output += "<div class='brick'></div>"
+                } else if (maze[i][j] == 1){
+                    output += "<div class='coin'></div>"
+                } else if (maze[i][j] == 0){
+                    output += "<div class='empty'></div>"
+                }
+            }
+            output += "\n</div\n";
+        }
+        document.querySelector(".maze").innerHTML = output;
+
+        console.log(output);
+    }
+
+    displayMaze();
+    </script>
+</body>
+
+
+</html>
