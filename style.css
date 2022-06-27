@@ -13,8 +13,8 @@ body{
 
 .row div{
     
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     
 }
 .brick{
@@ -24,7 +24,40 @@ body{
 
 .coin{
     background: url('images/coin.gif');
-    background-size: 18px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.empty{
+
+}
+
+.pacman .right{
+    background: url('images/pacman.gif');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.pacman .up{
+    background: url('images/pacman.gif'); 
+    transform: rotate(270deg); 
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.pacman .down{
+    background: url('images/pacman.gif'); 
+    transform: rotate(90deg); 
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pacman .left{
+    background: url('images/pacman.gif');
+    transform: rotate(180deg);
+    background-size: 30px;
     background-repeat: no-repeat;
     background-position: center;
 }
