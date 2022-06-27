@@ -19,7 +19,7 @@
         var pacman = {
             x : 1,
             y : 1
-        }
+        };
 
         var maze = [
             [2,2,2,2,2,2,2,2,2,2,2],
@@ -57,11 +57,29 @@
         console.log(output);
     }
     function displayPacman(){
-        document.querySelector(".pacman").style.top = pacman.y*50+"px";
-        document.querySelector(".pacman").style.left = pacman.x*50+"px";
+        document.querySelector("#pacman").style.top = pacman.y*50+"px";
+        document.querySelector("#pacman").style.left = pacman.x*50+"px";
     }
     displayMaze();
     displayPacman();
+
+    document.onkeydown = function(e){
+        if(e.keyCode == 39){ //right
+            pacman.x++;
+            document.querySelector("#pacman").style.transform = "rotate(0deg)";
+        } else if(e.keyCode == 40){ //down
+            pacman.y++;
+            document.querySelector("#pacman").style.transform = "rotate(90deg)";
+        } else if(e.keyCode == 37){ //left
+            pacman.x--;
+            document.querySelector("#pacman").style.transform = "rotate(180deg)";
+        } else if(e.keyCode == 38){ //up
+            pacman.y--;
+            document.querySelector("#pacman").style.transform = "rotate(270deg)";
+        }
+
+       console.log(e);
+    }
     </script>
 </body>
 

@@ -35,6 +35,7 @@ body{
 
 #pacman{
     background: url('images/pacman.gif');
+    transform: rotate(0deg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
