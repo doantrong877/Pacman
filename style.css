@@ -45,4 +45,15 @@ body{
     top: 50px;
     left: 50px;
 }
-
+#point{
+    color: white;
+    text-align: center;
+    align-items: center;
+    border: 3px solid white;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 100px;
+    top: 20px
+    
+}

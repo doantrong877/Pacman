@@ -11,7 +11,7 @@
     
     <div class="maze"></div>
         <div id="pacman"></div>
-
+    <div id="point"></div>
     <script>
 
         var output = "";
@@ -21,20 +21,22 @@
             y : 1
         };
 
+        var point = 0;
+
         var maze = [
-            [2,2,2,2,2,2,2,2,2,2,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,2],
-            [2,2,2,2,2,2,2,2,2,2,2]
+            [2,2,2,2,2,2,2,2,2,2,2,2,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,2,2,2,2,1,1,1,1,1,1,2],
+            [2,1,1,1,1,2,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,2,1,1,1,1,1,1,2],
+            [2,1,1,2,2,2,1,1,1,1,1,1,2],
+            [2,1,1,2,1,1,1,2,1,1,1,1,2],
+            [2,1,1,2,2,1,1,2,1,1,1,1,2],
+            [2,1,1,1,2,1,1,2,1,1,1,1,2],
+            [2,1,1,1,2,2,2,2,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,2,2,2,2,2,2,2,2,2,2,2,2]
         ]
     
         function displayMaze(){
@@ -53,7 +55,7 @@
             output += "</div>";
         }
         document.querySelector(".maze").innerHTML = output;
-
+        document.querySelector("#point").innerHTML = point;
         console.log(output);
     }
     function displayPacman(){
@@ -64,16 +66,16 @@
     displayPacman();
 
     document.onkeydown = function(e){
-        if(e.keyCode == 39){ //right
+        if(e.keyCode == 39 && maze[pacman.y][pacman.x+1] != 2){ //right
             pacman.x++;
             document.querySelector("#pacman").style.transform = "rotate(0deg)";
-        } else if(e.keyCode == 40){ //down
+        } else if(e.keyCode == 40 && maze[pacman.y+1][pacman.x] != 2 ){ //down
             pacman.y++;
             document.querySelector("#pacman").style.transform = "rotate(90deg)";
-        } else if(e.keyCode == 37){ //left
+        } else if(e.keyCode == 37 && maze[pacman.y][pacman.x-1] != 2){ //left
             pacman.x--;
             document.querySelector("#pacman").style.transform = "rotate(180deg)";
-        } else if(e.keyCode == 38){ //up
+        } else if(e.keyCode == 38 && maze[pacman.y-1][pacman.x] != 2){ //up
             pacman.y--;
             document.querySelector("#pacman").style.transform = "rotate(270deg)";
         }
