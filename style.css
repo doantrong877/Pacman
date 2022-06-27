@@ -36,6 +36,13 @@ body{
     background-position: center;
 }
 
+.ghost{
+    background: url('images/ghost.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .empty{
 
 }
