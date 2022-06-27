@@ -5,6 +5,7 @@
 
 body{
    background-color: black;
+   
 }
 .row{
     display: flex;
@@ -36,11 +37,20 @@ body{
     background-position: center;
 }
 
-.ghost{
+#ghost{
     background: url('images/ghost.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 450px;
+    left: 450px;
+    width: 50px;
+    height: 50px;
 }
 
 .empty{
@@ -48,16 +58,32 @@ body{
 }
 
 #pacman{
-    background: url('images/pacman.gif');
+    background: url('images/pacman2.gif');
     transform: rotate(0deg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     width: 40px;
     height: 40px;
     position: absolute;
     top: 50px;
     left: 50px;
+    
+}
+#pacman2{
+    background: url('images/pacman.gif');
+    transform: rotate(0deg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    
 }
 #point{
     color: white;
@@ -73,3 +99,18 @@ body{
     padding-top: 12px;
     
 }
+
+#gameover{
+    font-size: 100px;
+    width: 50%;
+    height: 50%;
+    background-color: red;
+    color: white;
+    position:absolute;
+    justify-content: center;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    align-items: center;
+}
+
