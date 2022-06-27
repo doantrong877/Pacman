@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+} 
+
+body{
+    background-color: black;
+}
+.row{
+    display: flex;
+    
+}
+
+.row div{
+    
+    width: 20px;
+    height: 20px;
+    
+}
+.brick{
+    background-color: blue;
+   
+}
+
+.coin{
+    background: url('images/coin.gif');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
